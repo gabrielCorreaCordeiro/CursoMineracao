@@ -25,9 +25,10 @@ public class  Q1Stud1 implements Study{
     @Override
     public void execute() {
        new RepositoryMining()
-               .in(GitRepository.singleProject("/home/todos/alunos/cm/a1763954/Documentos/repo/clojure"))
+               .in(GitRemoteRepository.hostedOn("https://github.com/canadaduane/house.git")
+               .buildAsSCMRepository())
                .through(Commits.all())
-               .process(new CommitVisitor(),new CSVFile("/home/todos/alunos/cm/a1763954/Documentos/repo/r.csv"))
+               .process(new CommitVisitor(),new CSVFile("/home/todos/alunos/cm/a1763954/Documentos/r.csv"))
                .mine();
                
                
